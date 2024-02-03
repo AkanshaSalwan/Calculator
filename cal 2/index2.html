@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="style2.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-center">Welcome to Calculate Me!</h1>
+    <div class="calculator">
+        <div class="display">   
+            <input type="text" id="result">
+        </div>
+        <div class="button-grid">
+            <button class="ac" onclick="clearResult()">AC</button>
+            <button class="ac" onclick="deleteResult()">DEL</button>
+            <button class="ac" onclick="insertValue('%')">%</button>
+            <button class="eg" onclick="insertValue('/')">/</button>
+            <button class="dot" onclick="insertValue('7')">7</button>
+            <button class="dot" onclick="insertValue('8')">8</button>
+            <button class="dot" onclick="insertValue('9')">9</button>
+            <button class="eg" onclick="insertValue('*')">*</button>
+            <button class="dot" onclick="insertValue('4')">4</button>
+            <button class="dot" onclick="insertValue('5')">5</button>
+            <button class="dot" onclick="insertValue('6')">6</button>
+            <button class="eg" onclick="insertValue('-')">-</button>
+            <button class="dot" onclick="insertValue('1')">1</button>
+            <button class="dot" onclick="insertValue('2')">2</button>
+            <button class="dot" onclick="insertValue('3')">3</button>
+            <button class="eg" onclick="insertValue('+')">+</button>
+            <button class="dot" onclick="insertValue('00')">00</button>
+            <button class="dot" onclick="insertValue('0')">0</button>
+            <button class="dot" onclick="insertValue('.')">.</button>
+            <button class="eg" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let Result = document.getElementById('result');
+
+        function insertValue(value){
+            Result.value += value;
+        }
+
+        function clearResult(){
+            Result.value ='';
+        }
+
+        function deleteResult(){
+            Result.value= Result.value.slice(0,-1);
+        }
+
+        function calculate(){
+            try{
+                Result.value= eval(Result.value);
+            }
+            catch(error){
+                Result.value = "error";
+            }
+        }
+    </script>
+    
+</body>
+</html>
